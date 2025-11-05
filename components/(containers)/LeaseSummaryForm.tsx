@@ -1,6 +1,6 @@
 import { Form } from "@heroui/form";
 
-export const LeaseSummary = ({...props }) => {
+export const LeaseSummaryForm = ({...props }) => {
   return (
     <Form>
 
