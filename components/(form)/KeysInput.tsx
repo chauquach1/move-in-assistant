@@ -20,11 +20,11 @@ export const KeysInput: FC<KeysInputProps> = ({ subject, ...props }) => {
       {...props}
       name={subject.toLowerCase().replace(/\s+/g, "_")}
       label={label}
-      variant={props.variant ?? "bordered"}
-      radius={props.radius ?? "md"}
-      size={props.size ?? "md"}
+      variant="bordered"
+      radius="sm"
+      size="sm"
       isClearable={props.isClearable ?? true}
-      className={props.className ?? "max-w-md"}
+      className="max-w-xs"
       type="number"
     />
   );

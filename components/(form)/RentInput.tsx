@@ -21,10 +21,10 @@ export const RentInput: FC<RentInputProps> = ({ subject, ...props }) => {
       name={subject.toLowerCase().replace(/\s+/g, "_")}
       label={label}
       variant={props.variant ?? "bordered"}
-      radius={props.radius ?? "md"}
-      size={props.size ?? "md"}
+      radius={props.radius ?? "sm"}
+      size={props.size ?? "sm"}
       isClearable={props.isClearable ?? true}
-      className={props.className ?? "max-w-md"}
+      className={props.className ?? "max-w-xs"}
       placeholder="0.00"
       startContent={
         <div className="pointer-events-none flex items-center">
