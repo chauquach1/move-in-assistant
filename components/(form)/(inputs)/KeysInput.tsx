@@ -1,11 +1,11 @@
 import { Input, InputProps } from "@heroui/input";
 import { FC, useMemo } from "react";
 
-interface RentInputProps extends Omit<InputProps, "label" | "name"> {
+interface KeysInputProps extends Omit<InputProps, "label" | "name"> {
   subject: string;
 }
 
-export const RentInput: FC<RentInputProps> = ({ subject, ...props }) => {
+export const KeysInput: FC<KeysInputProps> = ({ subject, ...props }) => {
   // Compute a human-friendly label from the subject
   const label = useMemo(() => {
     return subject
@@ -20,17 +20,11 @@ export const RentInput: FC<RentInputProps> = ({ subject, ...props }) => {
       {...props}
       name={subject.toLowerCase().replace(/\s+/g, "_")}
       label={label}
-      variant={props.variant ?? "bordered"}
-      radius={props.radius ?? "sm"}
-      size={props.size ?? "sm"}
+      variant="bordered"
+      radius="sm"
+      size="sm"
       isClearable={props.isClearable ?? true}
-      className={props.className ?? "max-w-xs"}
-      placeholder="0.00"
-      startContent={
-        <div className="pointer-events-none flex items-center">
-          <span className="text-default-400 text-small">$</span>
-        </div>
-      }
+      // className="max-w-xs"
       type="number"
     />
   );
