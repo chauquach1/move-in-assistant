@@ -16,7 +16,7 @@ export const SubjectContainer = forwardRef<HTMLDivElement, SubjectContainerProps
         ref={ref}
         id={baseId}
         aria-labelledby={`${baseId}-title`}
-        className={`flex flex-col min-w-full min-h-full gap-4 border-1 p-2 rounded-md ${className ?? ""}`}
+        className={`flex flex-col w-max min-w-min min-h-full gap-4 border-1 p-2 rounded-md ${className ?? ""}`}
         {...props}
       >
         <h2 id={`${baseId}-title`} className="text-2xl font-semibold">
