@@ -1,6 +1,7 @@
 import { Form } from "@heroui/form";
 import { LeaseTermDetails } from "./(form)/(form-sections)/LeaseTermDetails";
 import { RentAmounts } from "./(form)/(form-sections)/RentAmounts";
+import { Landscaping } from "./(form)/(form-sections)/Landscaping";
 
 export const LeaseSummaryForm = ({...props }) => {
   return (
@@ -9,6 +10,7 @@ export const LeaseSummaryForm = ({...props }) => {
       <div className="container flex flex-row justify-center min-w-full min-h-full gap-2">
         <LeaseTermDetails />
         <RentAmounts />
+        <Landscaping />
       </div>
     </Form>
   );
