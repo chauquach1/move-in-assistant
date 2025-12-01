@@ -63,7 +63,7 @@ export function FieldArray({
   };
 
   return (
-    <div className={`flex flex-col gap-3 border-1 rounded-sm p-3 ${className ?? ""}`}>
+    <div className={`flex flex-col w-full gap-3 ${className ?? ""}`}>
       {label && <h3 className="text-lg font-semibold">{label}</h3>}
 
       <div className="flex flex-col gap-2">
@@ -78,7 +78,7 @@ export function FieldArray({
               ) : (
                 <Input
                   name={itemName}
-                  label={`#${i + 1}`}
+                  // label={`#${i + 1}`}
                   value={value}
                   size="sm"
                   radius="sm"

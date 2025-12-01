@@ -16,8 +16,10 @@ export const LeaseTermDetails = () => {
       <TextInput subject="Property Code" />
       <DatePicker label="Lease Start Date" />
       <DatePicker label="Lease End Date" />
-      <TenantFieldArray values={tenants} onChange={setTenants} />
-      <GuarantorFieldArray values={guarantors} onChange={setGuarantors} />
+      <div className="flex flex-col col-span-2 gap-3 w-full">
+        <TenantFieldArray values={tenants} onChange={setTenants} />
+        <GuarantorFieldArray values={guarantors} onChange={setGuarantors} />
+      </div>
     </SubjectContainer>
   );
 }
