@@ -18,19 +18,20 @@ export const MoneyInput: FC<MoneyInputProps> = ({ subject, ...props }) => {
   return (
     <Input
       {...props}
+      startContent={
+        <div className="pointer-events-none flex items-center">
+          <span className="text-default text-small">$</span>
+        </div>
+      }
       name={subject.toLowerCase().replace(/\s+/g, "_")}
       label={label}
+      labelPlacement="outside"
       variant={props.variant ?? "bordered"}
       radius={props.radius ?? "sm"}
       size={props.size ?? "sm"}
       isClearable={props.isClearable ?? true}
-      // className={props.className ?? "max-w-xs"}
       placeholder="0.00"
-      startContent={
-        <div className="pointer-events-none flex items-center">
-          <span className="text-default-400 text-small">$</span>
-        </div>
-      }
+      defaultValue="0"
       type="number"
     />
   );

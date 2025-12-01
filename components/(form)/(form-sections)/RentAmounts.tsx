@@ -2,23 +2,25 @@
 import { useState } from "react";
 import { SubjectContainer } from "@/components/(containers)/SubjectContainer";
 import { MoneyInput } from "../(inputs)/MoneyInput";
-import { DatePicker } from "@heroui/date-picker";
-import { TenantFieldArray } from "./TenantFieldArray";
-import { GuarantorFieldArray } from "./GuarantorFieldArray";
+import { TextInput } from "../(inputs)/TextInput";
+import { DateInput } from "@heroui/react";
 
 export const RentAmounts = () => {
-    const [tenants, setTenants] = useState<string[]>([""]);
-    const [guarantors, setGuarantors] = useState<string[]>([""]);
 
   return (
     <SubjectContainer title="Rent Amounts">
-      <MoneyInput subject="Base" />
-      <MoneyInput subject="Parking" />
-      <MoneyInput subject="Storage" />
-      <MoneyInput subject="RUBS" />
-      <MoneyInput subject="Pet Rent" />
-      <MoneyInput subject="Monthly Total" />
-      <MoneyInput subject="Prorated" />
+      <div className="flex flex-col col-span-2 gap-3">
+        <MoneyInput subject="Base Rent" />
+        <MoneyInput subject="Parking Rent" />
+        <TextInput subject="Parking Spot #" placeholder="N/A" labelPlacement="outside-top" defaultValue="N/A" />
+        <MoneyInput subject="Storage Rent" />
+        <TextInput subject="Storage #" placeholder="N/A" labelPlacement="outside-top" defaultValue="N/A" />
+        <MoneyInput subject="RUBS" />
+        <MoneyInput subject="Pet Rent" />
+        <MoneyInput subject="Monthly Total" />
+        <MoneyInput subject="Prorated" />
+        <DateInput label="Due Date" />
+      </div>
     </SubjectContainer>
   );
 }
