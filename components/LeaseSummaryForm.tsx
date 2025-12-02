@@ -4,6 +4,7 @@ import { RentAmounts } from "./(form)/(form-sections)/RentAmounts";
 import { Landscaping } from "./(form)/(form-sections)/Landscaping";
 import { HOA } from "./(form)/(form-sections)/HOA";
 import { UtilityContainer } from "./(containers)/UtilityContainer";
+import { GeneralInformation } from "./(form)/(form-sections)/GeneralInformation";
 
 export const LeaseSummaryForm = ({...props }) => {
   return (
@@ -14,6 +15,7 @@ export const LeaseSummaryForm = ({...props }) => {
         <RentAmounts />
         <Landscaping />
         <HOA />
+        <GeneralInformation />
         <UtilityContainer title="Gas" utilityType="gas"/>
         <UtilityContainer title="Electricity" utilityType="electricity"/>
         <UtilityContainer title="Water" utilityType="water"/>
