@@ -49,6 +49,7 @@ export const TextInput: FC<TextInputProps> = ({ subject, ...props }) => {
       radius={props.radius ?? "sm"}
       size={props.size ?? "sm"}
       isClearable={props.isClearable ?? true}
+      type={props.type ?? "text"}
       // className={props.className ?? "max-w-md"}
     />
   );

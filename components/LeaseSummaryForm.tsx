@@ -5,6 +5,7 @@ import { Landscaping } from "./(form)/(form-sections)/Landscaping";
 import { HOA } from "./(form)/(form-sections)/HOA";
 import { UtilityContainer } from "./(containers)/UtilityContainer";
 import { GeneralInformation } from "./(form)/(form-sections)/GeneralInformation";
+import { Keys} from "./(form)/(form-sections)/Keys";
 
 export const LeaseSummaryForm = ({...props }) => {
   return (
@@ -13,6 +14,7 @@ export const LeaseSummaryForm = ({...props }) => {
       <div className="container flex flex-row flex-wrap justify-center min-w-full min-h-full gap-2">
         <LeaseTermDetails />
         <RentAmounts />
+        <Keys />
         <Landscaping />
         <HOA />
         <GeneralInformation />
