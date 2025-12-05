@@ -1,13 +1,9 @@
-'use client'
-import { useState } from "react";
 import { SubjectContainer } from "@/components/(containers)/SubjectContainer";
 import { cn } from "@heroui/react";
 import {Switch} from "@heroui/switch";
 import { TextInput } from "../(inputs)/TextInput";
 
 export const HOA = () => {
-    const [tenants, setTenants] = useState<string[]>([""]);
-    const [guarantors, setGuarantors] = useState<string[]>([""]);
 
   return (
     <SubjectContainer title="HOA">
