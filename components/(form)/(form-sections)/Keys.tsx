@@ -6,11 +6,11 @@ export const Keys = () => {
   return (
     <SubjectContainer title="Keys">
       <div className="flex flex-col col-span-2 gap-3">
-        <TextInput subject="Front Door" type="number" />
-        <TextInput subject="Garage" type="number" />
-        <TextInput subject="Mail" type="number" />
-        <TextInput subject="HOA/Common" type="number" />
-        <TextInput subject="Additional" />
+        <TextInput actualName="numKeys_FrontDoor" subject="Front Door" type="number" />
+        <TextInput actualName="numKeys_Garage" subject="Garage" type="number" />
+        <TextInput actualName="numKeys_Mail" subject="Mail" type="number" />
+        <TextInput actualName="numKeys_HOACommon" subject="HOA/Common" type="number" />
+        <TextInput actualName="numKeys_Additional" subject="Additional" />
       </div>
     </SubjectContainer>
   );
