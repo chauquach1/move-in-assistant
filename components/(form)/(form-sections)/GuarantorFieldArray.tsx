@@ -8,7 +8,7 @@ interface GuarantorFieldArrayProps
 }
 
 export function GuarantorFieldArray({
-  name = "guarantors",
+  name = "guarantorsArray",
   label = "Guarantor(s)",
   placeholder = "Full name",
   ...rest
