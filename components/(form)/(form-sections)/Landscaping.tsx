@@ -10,13 +10,13 @@ export const Landscaping = () => {
   return (
     <SubjectContainer title="Landscaping">
       <div className="grid grid-cols-1 grid-rows-2 col-span-2 gap-4">
-        <RadioGroup label="Watering" defaultValue="Landlord">
-          <Radio value="Landlord">Landlord</Radio>
-          <Radio value="Tenant">Tenant</Radio>
+        <RadioGroup name="landscapingWatering" label="Watering" defaultValue="Landlord" >
+          <Radio value="landlord">Landlord</Radio>
+          <Radio value="tenant">Tenant</Radio>
         </RadioGroup>
-        <RadioGroup label="Maintenance" defaultValue="Landlord">
-          <Radio value="Landlord">Landlord</Radio>
-          <Radio value="Tenant">Tenant</Radio>
+        <RadioGroup name="landscapingMaintenance" label="Maintenance" defaultValue="Landlord" >
+          <Radio value="landlord">Landlord</Radio>
+          <Radio value="tenant">Tenant</Radio>
         </RadioGroup>
       </div>
     </SubjectContainer>
