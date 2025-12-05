@@ -24,9 +24,10 @@ import { FC, useMemo } from "react";
 
 interface TextInputProps extends Omit<InputProps, "label" | "name"> {
   subject: string;
+  actualName?: string;
 }
 
-export const TextInput: FC<TextInputProps> = ({ subject, ...props }) => {
+export const TextInput: FC<TextInputProps> = ({ subject, actualName, ...props }) => {
   // Compute a human-friendly label from the subject
   const label = useMemo(() => {
     if (subject.indexOf(" ") === -1) {
@@ -43,7 +44,7 @@ export const TextInput: FC<TextInputProps> = ({ subject, ...props }) => {
   return (
     <Input
       {...props}
-      name={subject.toLowerCase().replace(/\s+/g, "_")}
+      name={actualName ?? subject.toLowerCase().replace(/\s+/g, "_")}
       label={label}
       variant={props.variant ?? "bordered"}
       radius={props.radius ?? "sm"}
