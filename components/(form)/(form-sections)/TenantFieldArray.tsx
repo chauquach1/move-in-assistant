@@ -8,7 +8,7 @@ interface TenantFieldArrayProps
 }
 
 export function TenantFieldArray({
-  name = "tenants",
+  name = "tenantsArray",
   label = "Tenant(s)",
   placeholder = "Full name",
   ...rest
