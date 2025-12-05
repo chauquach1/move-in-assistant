@@ -1,24 +1,3 @@
-// import {Input} from '@heroui/input';
-
-// export function TextInput(subject: string) {
-
-//   let labelNew: String;
-
-//   if (subject.includes(' ')) {
-//     const words = subject.split(' ');
-//     labelNew = words.map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-//   } else {
-//     labelNew = subject.charAt(0).toUpperCase() + subject.slice(1);
-//   }
-
-//   return (
-//     <Input
-//       name={subject}
-//       label={labelNew}
-//     />
-//   );
-// }
-
 import { Input, InputProps } from "@heroui/input";
 import { FC, useMemo } from "react";
 
