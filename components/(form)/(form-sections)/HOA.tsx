@@ -1,3 +1,4 @@
+"use client";
 import { SubjectContainer } from "@/components/(containers)/SubjectContainer";
 import { cn } from "@heroui/react";
 import {Switch} from "@heroui/switch";
@@ -14,16 +15,37 @@ export const HOA = () => {
             classNames={{
               base: cn("inline-flex flex-row-reverse gap-2"),
             }}
+            defaultChecked={false}
+            thumbIcon={({ isSelected, className }) =>
+              isSelected ? (
+                <span className={className}>Y</span>
+              ) : (
+                <span className={className}>N</span>
+              )
+            }
           >
             <p>HOA?</p>
           </Switch>
-          <TextInput subject="HOA Name" labelPlacement="inside" variant="flat" className="border-none"/>
+          <TextInput
+            subject="HOA Name"
+            labelPlacement="inside"
+            variant="flat"
+            className="border-none"
+          />
         </div>
         <Switch
           name="hoaParkingPass"
           classNames={{
             base: cn("inline-flex flex-row-reverse gap-2"),
           }}
+          defaultChecked={false}
+          thumbIcon={({ isSelected, className }) =>
+            isSelected ? (
+              <span className={className}>Y</span>
+            ) : (
+              <span className={className}>N</span>
+            )
+          }
         >
           <p>Parking Pass?</p>
         </Switch>
@@ -32,6 +54,14 @@ export const HOA = () => {
           classNames={{
             base: cn("inline-flex flex-row-reverse gap-2"),
           }}
+          defaultChecked={false}
+          thumbIcon={({ isSelected, className }) =>
+            isSelected ? (
+              <span className={className}>Y</span>
+            ) : (
+              <span className={className}>N</span>
+            )
+          }
         >
           <p>Rules/Regulations Provided?</p>
         </Switch>
