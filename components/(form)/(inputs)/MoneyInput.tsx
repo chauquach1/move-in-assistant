@@ -29,9 +29,11 @@ export const MoneyInput: FC<MoneyInputProps> = ({ subject, ...props }) => {
       variant={props.variant ?? "bordered"}
       radius={props.radius ?? "sm"}
       size={props.size ?? "sm"}
-      isClearable={props.isClearable ?? true}
+      isClearable={true}
       placeholder="0.00"
       defaultValue="0"
+      min={0}
+      step={0.01}
       type="number"
     />
   );
