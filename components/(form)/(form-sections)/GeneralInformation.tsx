@@ -43,10 +43,11 @@ export const GeneralInformation: FC = () => {
         {Object.entries(YN_QUESTION_LABELS).map(([key, label]) => (
           <Switch
             key={key}
-            name={`gi_${key}`}
+            name={`geninfo_${key}`}
             classNames={{
               base: cn("inline-flex flex-row-reverse gap-2"),
             }}
+            defaultChecked={false}
           >
             <p>{label}</p>
           </Switch>
