@@ -48,7 +48,9 @@ export const UtilityContainer = forwardRef<HTMLDivElement, UtilityContainerProps
         ref={ref}
         id={baseId}
         aria-labelledby={`${baseId}-title`}
-        className={`flex flex-col w-max min-w-min min-h-full gap-4 border p-3 rounded-md ${className ?? ""}`}
+        className={`flex flex-col w-max min-w-min min-h-full gap-4 border p-3 rounded-md ${
+          className ?? ""
+        }`}
         {...props}
       >
         <h2 id={`${baseId}-title`} className="text-2xl font-semibold">
@@ -59,6 +61,14 @@ export const UtilityContainer = forwardRef<HTMLDivElement, UtilityContainerProps
         <Switch
           name={`customerOfRecord_${nameSuffix}`}
           className="inline-flex flex-row-reverse gap-2"
+          defaultChecked={false}
+          thumbIcon={({ isSelected, className }) =>
+            isSelected ? (
+              <span className={className}>T</span>
+            ) : (
+              <span className={className}>L</span>
+            )
+          }
         >
           <p>Customer of Record?</p>
         </Switch>
@@ -67,6 +77,14 @@ export const UtilityContainer = forwardRef<HTMLDivElement, UtilityContainerProps
         <Switch
           name={`chargedToTenant_${nameSuffix}`}
           className="inline-flex flex-row-reverse gap-2"
+          defaultChecked={false}
+          thumbIcon={({ isSelected, className }) =>
+            isSelected ? (
+              <span className={className}>T</span>
+            ) : (
+              <span className={className}>L</span>
+            )
+          }
         >
           <p>Charged to Resident?</p>
         </Switch>
