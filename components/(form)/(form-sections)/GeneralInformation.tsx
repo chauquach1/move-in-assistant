@@ -48,6 +48,13 @@ export const GeneralInformation: FC = () => {
               base: cn("inline-flex flex-row-reverse gap-2"),
             }}
             defaultChecked={false}
+            thumbIcon={({ isSelected, className }) =>
+              isSelected ? (
+                <span className={className}>Y</span>
+              ) : (
+                <span className={className}>N</span>
+              )
+            }
           >
             <p>{label}</p>
           </Switch>
