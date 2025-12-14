@@ -58,36 +58,46 @@ export const UtilityContainer = forwardRef<HTMLDivElement, UtilityContainerProps
         </h2>
 
         {/* Customer of Record */}
-        <Switch
-          name={`customerOfRecord_${nameSuffix}`}
-          className="inline-flex flex-row-reverse gap-2"
-          defaultChecked={false}
-          thumbIcon={({ isSelected, className }) =>
-            isSelected ? (
-              <span className={className}>T</span>
-            ) : (
-              <span className={className}>L</span>
-            )
-          }
-        >
-          <p>Customer of Record?</p>
-        </Switch>
+        <div>
+          <Switch
+            name={`customerOfRecord_${nameSuffix}`}
+            className="inline-flex flex-row-reverse gap-2"
+            defaultChecked={false}
+            value="tenant"
+            thumbIcon={({ isSelected, className }) =>
+              isSelected ? (
+                <span className={className}>T</span>
+              ) : (
+                <span className={className}>L</span>
+              )
+            }
+          >
+            <p>Customer of Record?</p>
+          </Switch>
+          {/* Hidden input to ensure "landlord" is submitted when unchecked */}
+          <input type="hidden" name={`customerOfRecord_${nameSuffix}_default`} value="landlord" />
+        </div>
 
         {/* Charged to Resident */}
-        <Switch
-          name={`chargedToTenant_${nameSuffix}`}
-          className="inline-flex flex-row-reverse gap-2"
-          defaultChecked={false}
-          thumbIcon={({ isSelected, className }) =>
-            isSelected ? (
-              <span className={className}>T</span>
-            ) : (
-              <span className={className}>L</span>
-            )
-          }
-        >
-          <p>Charged to Resident?</p>
-        </Switch>
+        <div>
+          <Switch
+            name={`chargedToTenant_${nameSuffix}`}
+            className="inline-flex flex-row-reverse gap-2"
+            defaultChecked={false}
+            value="true"
+            thumbIcon={({ isSelected, className }) =>
+              isSelected ? (
+                <span className={className}>Y</span>
+              ) : (
+                <span className={className}>N</span>
+              )
+            }
+          >
+            <p>Charged to Resident?</p>
+          </Switch>
+          {/* Hidden input to ensure "false" is submitted when unchecked */}
+          <input type="hidden" name={`chargedToTenant_${nameSuffix}_default`} value="false" />
+        </div>
 
         {/* Billing Method */}
         <Select
