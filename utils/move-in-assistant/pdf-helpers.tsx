@@ -1,6 +1,26 @@
-import { PDFDocument } from 'pdf-lib'
+/* BEGINNING BOILER PLATE */
 
-// PDF Creation
+// NECESSARY IMPORTS
+import { PDFDocument } from 'pdf-lib'
+import { readFileSync } from 'fs'
+import { join } from 'path'
+
+/**
+ * Load the KTS Residential Lease PDF template from the templates directory.
+ * This function reads the PDF file synchronously (use server-side only).
+ * 
+ * @returns Uint8Array containing the PDF bytes
+ */
+function loadLeasePdfTemplate(): Uint8Array {
+  const pdfPath = join(process.cwd(), 'templates', 'KTSResidentialLease. Final Draft.pdf')
+  return readFileSync(pdfPath)
+}
+
+/* END BOILERPLATE */
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/* {PDF CREATION}: SERVER-SIDE FUNCTION TO CREATE A NEW PDF */
 export const createPdfExample = async () => {
   // Create a new PDF document
   const pdfDoc = await PDFDocument.create()
@@ -13,19 +33,41 @@ export const createPdfExample = async () => {
   const pdfBytes = await pdfDoc.save()
 }
 
-// PDF Modification
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/* {PDF MODIFICATION}: SERVER-SIDE FUNCTION TO MODIFY AN EXISTING PDF */
 export const modifyPdfExample = async () => {
   
-  // Declare and load an existing PDF document (replace ... with actual PDF bytes)
-  const pdfDoc = await PDFDocument.load("existing PDF bytes here")
+  // Load the KTS Residential Lease PDF template
+  const templateBytes = loadLeasePdfTemplate()
+  const pdfDoc = await PDFDocument.load(templateBytes)
 
   // Modify the PDF (e.g., add text to the first page)
   const pages = pdfDoc.getPages()
   pages[0].drawText('You can modify PDFs too!')
 
   // Save the modified PDF
-  const pdfBytes = await pdfDoc.save()  
+  const modifiedPdfBytes = await pdfDoc.save()  
 }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/* {GET ALL PDF FIELDS}: SERVER-SIDE FUNCTION TO LOG ALL PDF FORM FIELDS */
+const getAllPdfFields = async () => {
+  "use server";
+  const templateBytes = loadLeasePdfTemplate()
+  const pdfDoc = await PDFDocument.load(templateBytes)
+  const form = pdfDoc.getForm()
+
+  const fields = form.getFields()
+  fields.forEach((field) => {
+    const type = field.constructor.name;
+    const name = field.getName();
+    console.log(`${type}: ${name}`);
+  });
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // PDF Form Filling Example
 // async function fillForm() {
@@ -120,3 +162,4 @@ export const modifyPdfExample = async () => {
 //   const pdfBytes = await pdfDoc.save()
 // }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
