@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import "../globals.css";
+import { cookies } from 'next/headers'
+import { redirect } from 'next/navigation'
+import { createClient } from '@/utils/supabase/server'
 
 
 export const metadata: Metadata = {
@@ -7,11 +10,16 @@ export const metadata: Metadata = {
   description: "Move In Assistant Dashboard",
 };
 
-export default function DashboardLayout({
+export default async function DashboardLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const supabase = await createClient(cookies())
+  const { data: { user } } = await supabase.auth.getUser()
+
+  if (!user) redirect('/login')
+
   return (
     <html lang="en" className="dark">
       <body>
