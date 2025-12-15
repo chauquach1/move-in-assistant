@@ -12,11 +12,21 @@ export default function Login() {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
-    const { error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
     })
-    if (!error) router.push('/dashboard')
+
+    if (!error) {
+      // Ensure server-side cookies are set for SSR by informing the server of the session
+      await fetch('/api/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ event: 'SIGNED_IN', session: data.session }),
+      })
+
+      router.push('/dashboard')
+    }
   }
   return (
     <form onSubmit={handleLogin}>

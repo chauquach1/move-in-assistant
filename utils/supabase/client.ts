@@ -9,3 +9,14 @@ export const createClient = () =>
     supabaseUrl!,
     supabaseKey!,
   );
+
+export async function signOut() {
+  const supabase = createClient()
+  await supabase.auth.signOut()
+  // notify server to clear cookies
+  await fetch('/api/auth', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ event: 'SIGNED_OUT', session: null }),
+  })
+}
