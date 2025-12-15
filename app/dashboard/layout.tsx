@@ -21,10 +21,8 @@ export default async function DashboardLayout({
   if (!user) redirect('/login')
 
   return (
-    <html lang="en" className="dark">
       <body>
           {children}
       </body>
-    </html>
   );
 }
