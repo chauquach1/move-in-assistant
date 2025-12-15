@@ -6,6 +6,7 @@ import { HOA } from "./(form)/(form-sections)/HOA";
 import { UtilityContainer } from "./(containers)/UtilityContainer";
 import { GeneralInformation } from "./(form)/(form-sections)/GeneralInformation";
 import { Keys} from "./(form)/(form-sections)/Keys";
+import { Button } from "@heroui/button";
 
 export const LeaseSummaryForm = ({...props }) => {
   return (
@@ -23,6 +24,11 @@ export const LeaseSummaryForm = ({...props }) => {
         <UtilityContainer title="Water" utilityType="water"/>
         <UtilityContainer title="Sewer" utilityType="sewer"/>
         <UtilityContainer title="Trash" utilityType="trash"/>
+      </div>
+      <div className="flex w-full justify-around mt-6">
+        <Button type="submit" size="md">
+          Submit
+        </Button>
       </div>
     </Form>
   );
