@@ -4,7 +4,7 @@ import "../globals.css";
 
 
 export const metadata: Metadata = {
-  title: "Dashboard",
+  title: "CPMI Login",
   description: "Move In Assistant Login",
 };
 
